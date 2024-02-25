@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        IlliniNook
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+      .icon {
+    margin-left: auto; /* Pushes the icon to the right */
+}
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 3px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+        /* Inline CSS */
+        body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Changed from overflow: hidden; */
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  animation: gradientChange 10s ease-in-out infinite alternate;
+}
+.filter-form {
+    margin-bottom: 20px;
+}
+
+.filter-checkbox {
+    margin-right: 10px;
+    /* Add any other styles you want for the checkboxes */
+}
+
+.filter-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+    
+        h1 {
+          color: #fff;
+          font-weight: bold;
+          font-size: 3rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          animation: pulse 2s infinite alternate;
+        }
+    
+        .container {
+          margin-top: 50px;
+          padding: 30px;
+          border-radius: 20px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          animation: slideIn 1s ease-in-out;
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+    
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+    
+        li {
+          margin-bottom: 15px;
+          background-color: #f0f0f0;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+          display: flex;
+    justify-content: space-between;
+
+        }
+    
+        li:hover {
+          transform: translateY(-5px);
+        }
+    
+        /* Animations */
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.1);
+          }
+        }
+    
+        @keyframes slideIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+    
+        @keyframes gradientChange {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+        }
+      </style>
+  </head>
+  <body>
+    
+    <div style="text-align: center;">
+      <h1>IlliniNook</h1>
+    </div>
+    <div class="container">{% block content %} {% endblock %}</div>
+  </body>
+</html>

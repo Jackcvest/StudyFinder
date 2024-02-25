@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block title %} Study Spaces {% endblock %}
+
+{% block content %}
+<form method="GET" action="{% url 'list_view' %}" class="filter-form">
+    <label class="checkbox-container"><input type="checkbox" name="outlet_availability" class="filter-checkbox"> Outlet Availability<span class="checkmark"></span></label>
+    <label class="checkbox-container"><input type="checkbox" name="tables_availability" class="filter-checkbox"> Tables Availability<span class="checkmark"></span></label>
+    <label class="checkbox-container"><input type="checkbox" name="open_space_availability" class="filter-checkbox"> Open Space Availability<span class="checkmark"></span></label>
+    <label class="checkbox-container"><input type="checkbox" name="white_board_availability" class="filter-checkbox"> White Board Availability<span class="checkmark"></span></label>
+    <button type="submit" class="filter-button">Apply Filters</button>
+</form>
+    <ul>
+        {% for room in room %}
+            <li><a href="{% url 'room_details' room.id %}">{{ room.room_name }} </a>{% if room.outlet_availability %}<span class="icon"><i class="fas fa-plug"></i>
+                {% else %}{% endif %}{% if room.white_board_availability %}<i class="fas fa-chalkboard"></i></span>{% else %}{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
